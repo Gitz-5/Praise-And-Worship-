@@ -1,0 +1,361 @@
+/* =========================================
+   SONGS OF WORSHIP & PRAISE
+   THEME SYSTEM
+   ========================================= */
+
+/* ---------- DEFAULT / LIGHT ---------- */
+/* ================================
+   CUSTOM APP FONTS
+   ================================ */
+
+@font-face {
+    font-family: "Clash Display";
+    src: url("fonts/ClashDisplay-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Clash Grotesk";
+    src: url("fonts/ClashGrotesk-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Panchang";
+    src: url("fonts/Panchang-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Stardom";
+    src: url("fonts/Stardom-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Swaraga Demo";
+    src: url("fonts/SwaragaDemo-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("fonts/Satoshi-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Telma";
+    src: url("fonts/Telma-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Zodiak";
+    src: url("fonts/Zodiak-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gambarino";
+    src: url("fonts/Gambarino-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Aktura";
+    src: url("fonts/Aktura-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Bevellier";
+    src: url("fonts/Bevellier-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Nippo";
+    src: url("fonts/Nippo-Extralight.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+}
+body {
+    --theme-bg: #f4f7fb;
+    --theme-text: #17202a;
+    --theme-surface: #ffffff;
+    --theme-border: #dddddd;
+    --theme-header: #1976d2;
+    --theme-button: #ffffff;
+    --theme-button-text: #17202a;
+    --theme-subtitle: #666666;
+
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+
+/* ---------- GOLDEN PREMIUM ---------- */
+
+body.theme-golden {
+    --theme-bg: #fff8e1;
+    --theme-text: #3b2a12;
+    --theme-surface: #fffdf5;
+    --theme-border: #d6b656;
+    --theme-header: #8a6500;
+    --theme-button: #fffdf5;
+    --theme-button-text: #3b2a12;
+    --theme-subtitle: #765f2b;
+
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+
+/* ---------- ORGANIC CALMING ---------- */
+
+body.theme-organic {
+    --theme-bg: #eef6f0;
+    --theme-text: #20382b;
+    --theme-surface: #ffffff;
+    --theme-border: #a9c7b2;
+    --theme-header: #39734b;
+    --theme-button: #ffffff;
+    --theme-button-text: #20382b;
+    --theme-subtitle: #557564;
+
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+
+/* ---------- ROYAL ELEGANCE ---------- */
+
+body.theme-royal {
+    --theme-bg: #f8eef3;
+    --theme-text: #351724;
+    --theme-surface: #fffafb;
+    --theme-border: #c89aab;
+    --theme-header: #711f3b;
+    --theme-button: #fffafb;
+    --theme-button-text: #351724;
+    --theme-subtitle: #795266;
+
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+
+/* ---------- COMMON THEME ELEMENTS ---------- */
+
+body.theme-golden .top-bar,
+body.theme-organic .top-bar,
+body.theme-royal .top-bar {
+    background: var(--theme-header);
+}
+
+body.theme-golden .screen,
+body.theme-organic .screen,
+body.theme-royal .screen {
+    color: var(--theme-text);
+}
+
+body.theme-golden button,
+body.theme-organic button,
+body.theme-royal button {
+    border-color: var(--theme-border);
+}
+
+body.theme-golden .settings-option,
+body.theme-organic .settings-option,
+body.theme-royal .settings-option {
+    border-color: var(--theme-border);
+}
+
+
+/* ---------- THEME BUTTON COLORS ---------- */
+
+body.theme-golden .home-button,
+body.theme-organic .home-button,
+body.theme-royal .home-button {
+    background: var(--theme-button);
+    color: var(--theme-button-text);
+}
+
+
+/* ---------- THEME SUBTITLE ---------- */
+
+body.theme-golden .subtitle,
+body.theme-organic .subtitle,
+body.theme-royal .subtitle {
+    color: var(--theme-subtitle);
+}
+
+
+/* ---------- DARK THEME ---------- */
+
+body.dark-theme {
+    --theme-bg: #121212;
+    --theme-text: #eeeeee;
+    --theme-surface: #1e1e1e;
+    --theme-border: #444444;
+    --theme-header: #242424;
+    --theme-button: #2a2a2a;
+    --theme-button-text: #eeeeee;
+    --theme-subtitle: #aaaaaa;
+
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+body.dark-theme .top-bar {
+    background: var(--theme-header);
+}
+
+body.dark-theme .subtitle {
+    color: var(--theme-subtitle);
+}
+/* =========================================
+   COMPLETE THEME OVERRIDES
+   ========================================= */
+
+/* APP TITLE */
+body.theme-golden .app-title,
+body.theme-organic .app-title,
+body.theme-royal .app-title {
+    color: var(--theme-text);
+}
+
+/* MAIN SCREEN HEADINGS */
+body.theme-golden .screen h1,
+body.theme-organic .screen h1,
+body.theme-royal .screen h1 {
+    color: var(--theme-header);
+}
+
+/* BACK BUTTON */
+body.theme-golden .back-button,
+body.theme-organic .back-button,
+body.theme-royal .back-button {
+    color: var(--theme-header);
+}
+
+/* SUBTITLES */
+body.theme-golden .subtitle,
+body.theme-organic .subtitle,
+body.theme-royal .subtitle {
+    color: var(--theme-subtitle);
+}
+
+/* SETTINGS LABELS */
+body.theme-golden .settings-option h3,
+body.theme-organic .settings-option h3,
+body.theme-royal .settings-option h3 {
+    color: var(--theme-text);
+}
+
+/* SELECT BOXES */
+body.theme-golden select,
+body.theme-organic select,
+body.theme-royal select {
+    color: var(--theme-text);
+    background: var(--theme-surface);
+    border-color: var(--theme-border);
+}
+
+/* ABOUT CARD */
+body.theme-golden .about-card,
+body.theme-organic .about-card,
+body.theme-royal .about-card {
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+/* GENERAL SCREEN CONTENT */
+body.theme-golden .screen,
+body.theme-organic .screen,
+body.theme-royal .screen {
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+/* HOME BUTTONS */
+body.theme-golden .home-button,
+body.theme-organic .home-button,
+body.theme-royal .home-button {
+    background: var(--theme-button);
+    color: var(--theme-button-text);
+    border-color: var(--theme-border);
+}
+
+/* SONG LIST */
+body.theme-golden .song-item,
+body.theme-organic .song-item,
+body.theme-royal .song-item {
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+/* SEARCH AREA */
+body.theme-golden .search-input,
+body.theme-organic .search-input,
+body.theme-royal .search-input {
+    background: var(--theme-surface);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+/* LYRICS */
+body.theme-golden #lyricsText,
+body.theme-organic #lyricsText,
+body.theme-royal #lyricsText {
+    color: var(--theme-text);
+}
+
+/* DARK THEME */
+body.dark-theme .app-title {
+    color: #eeeeee;
+}
+
+body.dark-theme .screen h1 {
+    color: #eeeeee;
+}
+
+body.dark-theme .back-button {
+    color: #eeeeee;
+}
+
+body.dark-theme .settings-option h3 {
+    color: #eeeeee;
+}
+
+body.dark-theme select {
+    background: #1e1e1e;
+    color: #eeeeee;
+    border-color: #444444;
+}
+
+body.dark-theme .about-card,
+body.dark-theme .song-item,
+body.dark-theme .search-input {
+    background: #1e1e1e;
+    color: #eeeeee;
+    border-color: #444444;
+}
+
+body.dark-theme #lyricsText {
+    color: #eeeeee;
+}

@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="themes.css">
+    <title>Song of Worship & Praise</title>
+  <script src="./songs_977_cleaned.js"></script>
+
+    <style>
+      .search-input-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 14px 45px 14px 18px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #242424;
+  border: 1px solid #3d3d3d;
+  border-radius: 12px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #888888;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.clear-btn.hidden {
+  display: none;
+}
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--system-ui-font, Arial, sans-serif);
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+      .content-wrapper, main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+footer, .version-text {
+    flex-shrink: 0;
+    padding: 12px 0;
+    text-align: center;
+}
+
+        /* TOP BAR */
+        .top-bar {
+            height: 64px;
+            background: var(--accent-color, #1976d2);
+            color: var(--accent-text-color, white);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 16px;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+
+        .app-title {
+            font-size: 20px;
+            font-weight: bold;
+            font-family: var(--top-heading-font, inherit);
+        }
+
+        .menu-button {
+            width: 44px;
+            height: 44px;
+
+            border: none;
+            background: transparent;
+            color: white;
+
+            font-size: 28px;
+        }
+
+        /* CONTENT */
+        .screen {
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .screen h1 {
+            color: var(--theme-header);
+            font-size: 30px;
+            font-family: var(--display-accent-font, inherit);
+        }
+.about-card {
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 15px auto;
+  max-width: 350px;
+  text-align: center;
+}
+
+.dev-label {
+  font-size: 11px;
+  color: #888888;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dev-name {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.contact-subtext {
+  font-size: 13px;
+  color: #bbbbbb;
+  margin: 8px 0 14px 0;
+}
+
+.email-btn {
+  display: inline-block;
+  color: #00e5ff;
+  background-color: #2a2a2a;
+  border: 1px solid #00e5ff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.email-btn:active {
+  background-color: #00e5ff;
+  color: #000000;
+}
+
+
+        .subtitle {
+            color: #68717c;
+            margin-bottom: 35px;
+        }
+
+        /* MAIN OPTIONS */
+        .main-option {
+            display: block;
+
+            width: 100%;
+            max-width: 420px;
+
+            margin: 15px auto;
+            padding: 19px;
+
+            border: none;
+            border-radius: 16px;
+
+            background: white;
+            color: #17202a;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .main-option:active {
+            transform: scale(0.98);
+        }
+
+        /* BACK BUTTON */
+.back-button {
+    border: none;
+    background: transparent;
+
+    color: #1976d2;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    position: absolute;
+    top: 76px;
+    left: 16px;
+
+    padding: 8px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns elements from top to bottom */
+}
+
+        /* POPUP */
+        .popup-menu {
+            display: none;
+
+            position: absolute;
+
+            top: 58px;
+            right: 12px;
+
+            width: 180px;
+
+            background: white;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+
+            overflow: hidden;
+
+            z-index: 100;
+        }
+
+        .popup-menu.show {
+            display: block;
+        }
+
+        .popup-menu button {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+            background: white;
+
+            text-align: left;
+
+            font-size: 16px;
+        }
+
+        .popup-menu button:active {
+            background: #eeeeee;
+        }
+/* SONG LIST */
+.song-list {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    margin: 10px 0;
+    padding: 16px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: white;
+    color: #17202a;
+
+    text-align: left;
+    font-size: 16px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.song-item:active {
+    transform: scale(0.98);
+    background: #f0f6ff;
+}
+
+.song-number {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 14px;
+
+    border-radius: 50%;
+
+    background: #1976d2;
+    color: white;
+
+    font-weight: bold;
+}
+
+.song-title {
+    font-weight: bold;
+      }
+      /* FAVORITE BUTTON */
+.favorite-button {
+    display: block;
+    margin: 15px auto;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: white;
+    color: #1976d2;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.favorite-button:active {
+    transform: scale(0.97);
+}
+
+/* SETTINGS */
+.settings-option {
+    width: 100%;
+    max-width: 500px;
+    margin: 18px auto;
+    text-align: left;
+}
+
+.settings-option h3 {
+    margin: 0 0 8px 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.settings-option select {
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 42px 14px 16px;
+    border: 1px solid #3d3d3d;
+    border-radius: 12px;
+    background-color: #242424;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.settings-option select:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25,118,210,0.15);
+}
+
+body:not(.dark-theme) .settings-option select {
+    background-color: #ffffff;
+    color: #17202a;
+    border-color: #d7d7d7;
+}
+
+        /* HIDDEN SCREENS */
+        .hidden {
+    display: none !important;
+        }
+      /* DARK THEME */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-theme button {
+    background-color: #242424;
+    color: #ffffff;
+}
+
+body.dark-theme input,
+body.dark-theme select {
+    background-color: #242424;
+    color: #ffffff;
+    border-color: #555555;
+}
+      body,
+body * {
+    font-family: inherit;
+}      
+  .app-version {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 30px;
+  }  
+    #homeScreen {
+    min-height: calc(89vh - 60px);
+}
+
+#homeScreen .app-version {
+    margin-top: calc(100vh - 300px);
+    padding-top: 20px;
+}  
+      /* --- ABOUT SECTION SPECIFIC STYLING --- */
+
+/* 1. Allow internal scrolling if content exceeds viewport */
+#aboutScreen, .about-container {
+    height: calc(100vh - 64px); /* Fills available height below top bar */
+    overflow-y: auto;          /* Enables smooth vertical scrolling */
+    -webkit-overflow-scrolling: touch;
+    padding: 16px 20px 30px;    /* Comfortable inner spacing with bottom room */
+    box-sizing: border-box;
+}
+
+/* 2. Standardize vertical spacing between About sections */
+#aboutScreen h2, #aboutScreen .section-title {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    font-size: 1.2rem;
+}
+
+#aboutScreen p, #aboutScreen .info-text {
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+/* 3. Contact box container adjustments */
+#aboutScreen .contact-box, #aboutScreen .email-card {
+    margin: 16px auto;
+    padding: 14px;
+    max-width: 320px;
+}
+
+      .song-navigation {
+    margin-top: 30px;
+    padding-bottom: 20px;
+      }
+      #lyricsScreen {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+}
+#lyricsText {
+  text-align: left;
+  max-width: 320px;
+  margin: 20px auto;
+  line-height: 1.6;
+  white-space: pre-line;
+  font-size: 18px;
+  font-family: var(--lyrics-font, inherit);
+}
+
+#songTitle,
+.song-title {
+  font-family: var(--display-accent-font, inherit);
+}
+/* Lyrics header */
+.lyrics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Icon-only share button */
+.share-button {
+    display: block;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #000;
+    background: white;
+    color: black;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+      
+#lyricsScreen .song-navigation {
+    margin-top: auto;
+  }
+      .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+/* Disable text selection throughout the app */
+body,
+body * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.toast.show {
+    opacity: 1;
+    bottom: 45px;
+}
+      #splashScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    text-align: center;
+}
+
+#splashScreen img {
+    width: 75%;
+    max-width: 350px;
+    max-height: 55vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+#splashScreen h1 {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.splash-bottom {
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+}
+      #lyricsText {
+  text-align: left;
+  max-width: 320px;
+  margin: 20px auto;
+  line-height: 1.6;
+  white-space: pre-line;
+  font-size: 18px;
+      
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+      
+}
+      /* --- HOME SCREEN SPECIFIC COMPACT STYLING --- */
+
+/* 1. Reduce overall padding on the main/home wrapper */
+#mainScreen, .home-container {
+    padding: 10px 16px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 64px); /* Account for 64px top bar height */
+}
+
+/* 2. Tighten spacing around the title and subtext */
+#mainScreen h1, #mainScreen .title {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+#mainScreen p, #mainScreen .subtitle {
+    margin-bottom: 12px;
+}
+
+/* 3. Reduce button gaps and vertical padding */
+#mainScreen .button-group, #mainScreen .menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduces space between "Song Book" and "Search" buttons */
+}
+
+#mainScreen button, #mainScreen .btn {
+    padding: 12px 16px; /* Slightly slimmer buttons */
+    margin: 0;
+}
+
+/* 4. Pull version footer up */
+#mainScreen footer, #mainScreen .version-text {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Replace '.screen' with the actual class/ID of your second screen wrapper */
+.screen, .page, #songBookScreen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden; /* Keeps the container locked to 100% screen height */
+    box-sizing: border-box;
+}
+#searchScreen {
+    justify-content: flex-start;
+}
+/* Make only the list or scrollable content area scroll internally */
+.screen .list-container, .screen .search-results {
+  
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+  }
+/* Target your About section container */
+#aboutScreen, .about-container {
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
+    overflow-y: auto; /* Enables scrolling for About screen only */
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 16px 24px;
+    box-sizing: border-box;
+}
+#aboutScreen {
+    justify-content: flex-start;
+        }
+/* Tighten vertical gaps on About text blocks */
+#aboutScreen h2, #aboutScreen .section-title {
+    margin-top: 14px;
+    margin-bottom: 4px;
+}
+
+#aboutScreen p {
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+#aboutScreen .contact-box {
+    margin: 12px auto;
+    padding: 10px;
+}
+
+      /* Target your home container wrapper */
+#mainScreen, .home-container {
+    height: calc(100vh - 64px);  /* Height excluding top app bar */
+    height: calc(100dvh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads top title, buttons, and footer */
+    align-items: center;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    overflow: hidden; /* Keeps home screen strictly non-scrolling */
+}
+
+/* Ensure the center section shrinks if needed */
+.home-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+}
+
+/* Force version footer to stick inside view */
+.home-container footer, .version-footer {
+    flex-shrink: 0;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+      /* --- FIX FOR SONG LIST & LYRICS SCROLLING --- */
+
+/* 1. Target the song list and lyric container elements */
+.song-list, 
+.lyrics-container, 
+#songList, 
+#lyricsScreen, 
+.list-group {
+    flex: 1;                            /* Fills available vertical height */
+    overflow-y: auto !important;        /* Forces vertical scrolling */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling on mobile devices */
+    max-height: calc(100vh - 64px);     /* Prevents content from overflowing past top bar */
+    max-height: calc(100dvh - 64px);
+    padding-bottom: 20px;               /* Ensures last song/line isn't cut off at bottom */
+}
+
+/* 2. Ensure individual list items or song texts are allowed to expand */
+.song-item, .lyric-line, .song-content {
+    height: auto !important;
+    min-height: min-content;
+}
+/* Lock the lyrics screen layout to viewport height */
+#lyricsScreen {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 64px);
+    height: calc(100dvh - 64px);
+    overflow: hidden;
+}
+
+/* Prevent top controls and header from moving */
+#lyricsScreen > .back-button,
+.lyrics-header {
+    flex-shrink: 0;
+}
+
+.lyrics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Make ONLY the lyrics text scroll */
+#lyricsText {
+    flex: 1;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+}
+
+/* Keep bottom navigation fixed at bottom */
+.song-navigation {
+    flex-shrink: 0;
+}
+
+    </style>
+
+<body>
+<!-- SPLASH SCREEN -->
+<div id="splashScreen">
+
+    <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmBlDhFi1GYlog_FSzW2OXUseI91elIwSGiJBV8X6myw&s=10"
+        alt="Eagle">
+
+    <h1>Songs Of Worship And Praise</h1>
+
+    <div class="splash-bottom">
+        Seals, Thunders &amp; Trumpet
+    </div>
+
+</div>
+<!-- TOP BAR -->
+<header class="top-bar">
+
+    <div class="app-title">
+         Songs Of Worship & Praise
+    </div>
+
+<button id="menuButton" class="menu-button" onclick="toggleMenu()">
+    ⋮
+</button>
+
+</header>
+
+
+    <!-- POPUP MENU -->
+    <div id="popupMenu" class="popup-menu">
+
+        <button onclick="showSettings()">
+            ⚙️ Settings
+        </button>
+
+        <button onclick="showFavorites()">
+            ⭐ Favorites
+        </button>
+      <button onclick="showAbout()">
+    ℹ️ About
+      </button>
+
+    </div>
+
+
+    <!-- MAIN MENU -->
+    <main id="homeScreen" class="screen">
+
+    <h1>Song Book</h1>
+
+    <p class="subtitle">
+        Hymns & Songs
+    </p>
+
+    <button class="main-option" onclick="showSongs()">
+        📖 Song Book
+    </button>
+
+    <button class="main-option" onclick="showSearch()">
+        🔍 Search
+    </button>
+
+    <div class="app-version">
+    Version 0.56.7
+    </div>
+
+    </main>
+
+<!-- SONG SCREEN -->
+<main id="songsScreen" class="screen hidden">
+
+    <button class="back-button" onclick="appBack()">
+        ← Back
+    </button>
+
+    <h1>Song Book</h1>
+
+    <p class="subtitle">
+        Hymns & Songs
+    </p>
+
+    <div class="song-list" id="songList">
+    </div>
+
+</main>
+    <!-- SEARCH SCREEN -->
+<main id="searchScreen" class="screen hidden">
+
+    <button class="back-button" onclick="appBack()">
+        ← Back
+    </button>
+
+    <h1>Search</h1>
+
+    <p class="subtitle">
+        Find a song
+    </p>
+
+<div class="search-input-wrapper">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Type song title, number, or lyrics..."
+    oninput="handleSearchInput()"
+    autocomplete="off"
+  >
+  <button id="clearSearchBtn" onclick="clearSearch()" class="clear-btn hidden">✖</button>
+</div>
+
+<div id="searchResults" class="search-results"></div>
+
+
+</main>
+
+
+    <!-- SETTINGS SCREEN -->
+<main id="settingsScreen" class="screen hidden">
+
+    <button class="back-button" onclick="appBack()">
+        ← Back
+    </button>
+
+    <h1>Settings</h1>
+
+    <p class="subtitle">
+        App settings
+    </p>
+
+    <div class="settings-option">
+        <h3>Top Heading Font</h3>
+
+        <select id="topHeadingFontSelect" onchange="changeTopHeadingFont()">
+            <option value="clash-display">Clash Display</option>
+            <option value="clash-grotesk">Clash Grotesk</option>
+            <option value="panchang">Panchang</option>
+            <option value="stardom">Stardom</option>
+            <option value="swaraga-demo">Swaraga Demo</option>
+            <option value="system" selected>System Default</option>
+        </select>
+    </div>
+
+    <div class="settings-option">
+        <h3>Display & Accent Font</h3>
+
+        <select id="displayAccentFontSelect" onchange="changeDisplayAccentFont()">
+            <option value="clash-display">Clash Display</option>
+            <option value="clash-grotesk">Clash Grotesk</option>
+            <option value="panchang">Panchang</option>
+            <option value="stardom">Stardom</option>
+            <option value="swaraga-demo">Swaraga Demo</option>
+            <option value="satoshi">Satoshi</option>
+            <option value="ranade">Ranade</option>
+            <option value="excon">Excon</option>
+            <option value="telma">Telma</option>
+            <option value="system" selected>System Default</option>
+        </select>
+    </div>
+
+    <div class="settings-option">
+        <h3>System UI & Navigation Font</h3>
+
+        <select id="systemUiFontSelect" onchange="changeSystemUiFont()">
+            <option value="satoshi">Satoshi</option>
+            <option value="ranade">Ranade</option>
+            <option value="excon">Excon</option>
+            <option value="telma">Telma</option>
+            <option value="noto-serif">Noto Serif</option>
+            <option value="system" selected>System Default</option>
+        </select>
+    </div>
+
+    <div class="settings-option">
+        <h3>Lyrics / Hymn Text Font</h3>
+
+        <select id="lyricsFontSelect" onchange="changeLyricsFont()">
+            <option value="zodiak">Zodiak</option>
+            <option value="boska">Boska</option>
+            <option value="gambarino">Gambarino</option>
+            <option value="noto-serif" selected>Noto Serif</option>
+            <option value="dancing-script">Dancing Script</option>
+            <option value="cutive-mono">Cutive Mono</option>
+            <option value="system">System Default</option>
+        </select>
+    </div>
+
+    <div class="settings-option">
+        <h3>Font Size</h3>
+
+        <select id="fontSizeSelect" onchange="changeFontSize()">
+            <option value="very-small">Very Small</option>
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+            <option value="extra-large">Extra Large</option>
+        </select>
+    </div>
+  <div class="settings-option">
+    <h3>Theme</h3>
+
+    <select id="themeSelect">
+    <option value="system" selected>System Default</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+    <option value="golden">Golden Premium</option>
+    <option value="organic">Organic Calming</option>
+    <option value="royal">Royal Elegance</option>
+    </select>
+  </div>
+  <div class="settings-option">
+    <h3>Accent Color</h3>
+
+    <select id="accentColorSelect">
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="purple">Purple</option>
+        <option value="yellow">Yellow</option>
+        <option value="aqua">Aqua</option>
+        <option value="navy">Navy</option>
+        <option value="pink">Pink</option>
+        <option value="violet">Violet</option>
+        <option value="coral">Coral</option>
+        <option value="blue-gray">Blue Gray</option>
+        <option value="gray">Gray</option>
+        <option value="white">White</option>
+        <option value="brown">Brown</option>
+    </select>
+  </div>
+</main>
+<main id="aboutScreen" class="screen hidden">
+
+    <button class="back-button" onclick="showHome()">
+        ← Back
+    </button>
+
+    <h1>About</h1>
+
+    <p class="subtitle">
+        Song of Worship & Praise
+    </p>
+<div class="about-section">
+  <h3>Developer</h3>
+  <p>Gitz Note</p>
+</div>
+
+<div class="about-card">
+  <p class="contact-subtext">Any queries, suggestions.<br>Feel free to reach us at:</p>
+
+  <button type="button" onclick="contactDeveloper()" class="email-btn">
+    notem.inquiries@gmail.com
+  </button>
+</div>
+
+    <div class="about-section">
+        <h3>Copyright</h3>
+        <p>Copyright © 2026 Note G. All rights Reserved</p>
+    </div>
+</div>
+    <div class="about-section">
+        <h3>Acknowledgments</h3>
+        <p>
+            Thank you for using Song of Worship & Praise.
+            Special thanks to everyone who contributed to the
+            development and improvement of this app.
+        </p>
+    </div>
+  <div class="about-section">
+    <h3>Version</h3>
+    <p>0.56.7
+  </div>
+
+</main>
+
+    <!-- FAVORITES SCREEN -->
+    <main id="favoritesScreen" class="screen hidden">
+
+        <button class="back-button" onclick="appBack()">
+            ← Back
+        </button>
+
+        <h1>Favorites</h1>
+
+        <p class="subtitle">
+            Your favorite songs
+        </p>
+
+        <div id="favoriteList">
+    No favorite songs yet.
+        </div>
+
+    </main>
+<!-- SONG LYRICS SCREEN -->
+<main id="lyricsScreen" class="screen hidden">
+
+    <button class="back-button" onclick="appBack()">
+
+        ← Back
+    </button>
+<div class="lyrics-header">
+    <h1 id="songTitle">Song Title</h1>
+
+<button class="share-button" onclick="shareSong()" aria-label="Share">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+    </svg>
+</button>
+
+</div>
+
+    <div id="lyricsText">
+        Song lyrics will appear here.
+    </div>
+<div class="song-navigation">
+
+    <button id="previousButton" onclick="previousSong()">
+        ← Previous
+    </button>
+
+    <button id="nextButton" onclick="nextSong()">
+        Next →
+    </button>
+
+    <button class="favorite-button" onclick="toggleFavorite()">
+        ☆ Add to Favorites
+    </button>
+
+</div>
+</main>
+<script src="./songs_977.js"></script>
+  
+    <script>
+let currentSong = 0;
+let favoriteSongs = [];
+      
+let previousScreen = "homeScreen";
+
+try {
+    let savedFavorites = localStorage.getItem("favoriteSongs");
+
+    if (savedFavorites) {
+        favoriteSongs = JSON.parse(savedFavorites);
+    }
+} catch (error) {
+    favoriteSongs = [];
+}
+      
+        function hideAllScreens() {
+            document.getElementById("lyricsScreen").classList.add("hidden");
+            document.getElementById("homeScreen").classList.add("hidden");
+            document.getElementById("songsScreen").classList.add("hidden");
+            document.getElementById("searchScreen").classList.add("hidden");
+            document.getElementById("settingsScreen").classList.add("hidden");
+            document.getElementById("favoritesScreen").classList.add("hidden");
+document.getElementById("aboutScreen").classList.add("hidden");
+            document.getElementById("popupMenu").classList.remove("show");
+          document.getElementById("menuButton").classList.add("hidden");
+        }
+
+function getCurrentScreen() {
+
+    let screens = [
+        "homeScreen",
+        "songsScreen",
+        "lyricsScreen",
+        "searchScreen",
+        "favoritesScreen",
+        "settingsScreen",
+        "aboutScreen"
+    ];
+
+    for (let screen of screens) {
+
+        let element = document.getElementById(screen);
+
+        if (!element.classList.contains("hidden")) {
+            return screen;
+        }
+    }
+
+    return "homeScreen";
+      }
+        function showHome() {
+    hideAllScreens();
+    document.getElementById("homeScreen").classList.remove("hidden");
+    document.getElementById("menuButton").classList.remove("hidden");
+}
+
+function contactDeveloper() {
+    const email = "notem.inquiries@gmail.com";
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(email);
+        showToast("Email address copied to clipboard!");
+    } else {
+        showToast("Developer Email: " + email);
+    }
+}
+
+function showToast(message) {
+    let toast = document.getElementById("toast-msg");
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast-msg";
+        toast.style.cssText = "position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:12px 24px;border-radius:20px;font-size:14px;z-index:9999;box-shadow:0 4px 6px rgba(0,0,0,0.3);transition:opacity 0.3s;";
+        document.body.appendChild(toast);
+    }
+    toast.innerText = message;
+    toast.style.opacity = "1";
+    setTimeout(() => { toast.style.opacity = "0"; }, 3000);
+}
+
+
+
+function appBack() {
+    const activeScreen = getCurrentScreen();
+
+    if (activeScreen === "lyricsScreen") {
+        hideAllScreens();
+
+        if (previousScreen === "searchScreen") {
+            document.getElementById("searchScreen").classList.remove("hidden");
+            document.getElementById("menuButton").classList.remove("hidden");
+        } else if (previousScreen === "favoritesScreen") {
+            document.getElementById("favoritesScreen").classList.remove("hidden");
+            document.getElementById("menuButton").classList.remove("hidden");
+        } else {
+            document.getElementById("songsScreen").classList.remove("hidden");
+            document.getElementById("menuButton").classList.remove("hidden");
+        }
+        return;
+    }
+
+    if (
+        activeScreen === "songsScreen" ||
+        activeScreen === "searchScreen" ||
+        activeScreen === "settingsScreen" ||
+        activeScreen === "favoritesScreen" ||
+        activeScreen === "aboutScreen"
+    ) {
+        showHome();
+        return;
+    }
+
+    showHome();
+}
+
+        function showSongs() {
+  hideAllScreens();
+
+          
+  let songList = document.getElementById("songList");
+  let htmlBuffer = "";
+          
+  window.songLibrary.forEach(function(song) {
+    htmlBuffer += 
+      '<button class="song-item" onclick="openSong(' + song.number + ')">' +
+        '<span class="song-number">' + song.number + '</span>' +
+        '<span class="song-title">' + song.title + '</span>' +
+      '</button>';
+  });
+
+  songList.innerHTML = htmlBuffer;
+  document.getElementById("songsScreen").classList.remove("hidden");
+          if (!handlingBack) {
+    history.pushState({ screen: "songs" }, "", "#songs");
+          }
+        }
+      function showSearch() {
+  hideAllScreens();
+  let searchScreen = document.getElementById("searchScreen");
+  searchScreen.classList.remove("hidden");
+
+  // Focus the search box and bring up the keyboard
+  setTimeout(function() {
+    let input = document.getElementById("searchInput");
+    if (input) {
+      input.focus();
+    }
+  }, 100);
+}
+function handleSearchInput() {
+  let input = document.getElementById("searchInput").value;
+  let clearBtn = document.getElementById("clearSearchBtn");
+
+  if (input.length > 0) {
+    clearBtn.classList.remove("hidden");
+  } else {
+    clearBtn.classList.add("hidden");
+    if (!handlingBack) {
+    history.pushState({ screen: "search" }, "", "#search");
+    }
+  }
+
+  searchSongs();
+}
+
+function clearSearch() {
+  let input = document.getElementById("searchInput");
+  let clearBtn = document.getElementById("clearSearchBtn");
+  let results = document.getElementById("searchResults");
+
+  input.value = "";
+  results.innerHTML = "";
+  clearBtn.classList.add("hidden");
+  input.focus();
+}
+
+function searchSongs() {
+  let input = document.getElementById("searchInput").value.toLowerCase().trim();
+  let results = document.getElementById("searchResults");
+  let htmlBuffer = "";
+
+  // If input is empty, clear results or show all
+  if (input === "") {
+    results.innerHTML = "";
+    return;
+  }
+
+  window.songLibrary.forEach(function(song) {
+    let titleMatch = song.title && song.title.toLowerCase().includes(input);
+    let numberMatch = song.number && song.number.toString().includes(input);
+    let lyricsMatch = song.lyrics && song.lyrics.toLowerCase().includes(input);
+
+    if (titleMatch || numberMatch || lyricsMatch) {
+      htmlBuffer += 
+        '<button class="song-item" onclick="openSong(' + song.number + ')">' +
+          '<span class="song-number">' + song.number + '</span>' +
+          '<span class="song-title">' + song.title + '</span>' +
+        '</button>';
+    }
+  });
+
+  if (htmlBuffer === "") {
+    results.innerHTML = "<p style='text-align:center; padding: 20px;'>No songs found.</p>";
+  } else {
+    results.innerHTML = htmlBuffer;
+  }
+}
+function showFavorites() {
+    hideAllScreens();
+
+    let favoriteList = document.getElementById("favoriteList");
+
+    if (favoriteSongs.length === 0) {
+        favoriteList.innerHTML = "No favorite songs yet.";
+    } else {
+        favoriteList.innerHTML = "";
+        favoriteSongs.forEach(function(song) {
+            let favoriteSong = window.songLibrary.find(function(item) {
+                return item.number === song;
+            });
+            let title = favoriteSong ? favoriteSong.title : "Unknown Song";
+            favoriteList.innerHTML +=
+                '<button class="song-item" onclick="openSong(' + song + ')">' +
+                '<span class="song-number">★</span>' +
+                '<span class="song-title">' + title + '</span>' +
+                '</button>';
+        });
+    }
+
+    document.getElementById("favoritesScreen").classList.remove("hidden");
+    history.pushState({ locked: true, screen: "favorites" }, "", "#favorites");
+}
+
+function showAbout() {
+    hideAllScreens();
+    document.getElementById("aboutScreen").classList.remove("hidden");
+    history.pushState({ locked: true, screen: "about" }, "", "#about");
+}
+
+function showSettings() {
+    hideAllScreens();
+    document.getElementById("settingsScreen").classList.remove("hidden");
+    history.pushState({ locked: true, screen: "settings" }, "", "#settings");
+}
+
+
+function openSong(number) {
+    const activeBeforeOpening = getCurrentScreen();
+    if (activeBeforeOpening !== "lyricsScreen") {
+        previousScreen = activeBeforeOpening;
+    }
+
+    let songSource = previousScreen;
+    hideAllScreens();
+
+    currentSong = number;
+
+    let button = document.querySelector(".favorite-button");
+
+    if (favoriteSongs.includes(currentSong)) {
+        button.innerHTML = "★ Remove from Favorites";
+    } else {
+        button.innerHTML = "☆ Add to Favorites";
+    }
+
+      // Flexible lookup using double equals == so both strings "1" and numbers 1 match
+  let song = window.songLibrary.find(function(song) {
+    return song.number == number;
+  });
+
+  if (!song) {
+    alert("Song not found.");
+    return;
+  }
+
+  // Display song number alongside title
+  document.getElementById("songTitle").textContent = song.number + ". " + song.title;
+
+    let formattedLyrics = song.lyrics
+  .replace(/\n(CHORUS)/g, '\n\nCHORUS')
+  .replace(/([.;?!])\n([A-Z])/g, '$1\n\n$2');
+
+document.getElementById("lyricsText").innerText = formattedLyrics;
+
+    document.getElementById("lyricsScreen").classList.remove("hidden");
+ // Inside openSong(number):
+if (!handlingBack) {
+    history.pushState(
+        {
+            screen: "lyrics",
+            songNumber: number,
+            source: songSource
+        },
+        "",
+        "#lyrics"
+    );
+}
+}
+      function showToast(message) {
+    let toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(function() {
+        toast.classList.remove("show");
+    }, 2000);
+      }
+      setTimeout(function() {
+    document.getElementById("splashScreen").style.display = "none";
+}, 2500);
+function toggleFavorite() {
+
+
+    let button = document.querySelector(".favorite-button");
+
+    if (favoriteSongs.includes(currentSong)) {
+
+        favoriteSongs = favoriteSongs.filter(function(song) {
+            return song !== currentSong;
+        });
+
+        button.innerHTML = "☆ Add to Favorites";
+
+        showToast("☆ Removed from Favorites");
+
+    } else {
+        favoriteSongs.push(currentSong);
+
+        button.innerHTML = "★ Remove from Favorites";
+
+        showToast("★ Added to Favorites");
+    }
+
+    localStorage.setItem("favoriteSongs", JSON.stringify(favoriteSongs));
+}
+  async function shareSong() {
+    const title = document.getElementById("songTitle").innerText;
+    const lyrics = document.getElementById("lyricsText").innerText;
+    const shareText = title + "\n\n" + lyrics;
+
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                title: title,
+                text: shareText
+            });
+        } catch (error) {
+            // If sharing fails or gets canceled, fall back to copying text
+            if (error.name !== 'AbortError') {
+                copyToClipboard(shareText);
+            }
+        }
+    } else {
+        // Fallback for browsers or local file previews that don't support navigator.share
+        copyToClipboard(shareText);
+    }
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("Lyrics copied to clipboard!");
+        }).catch(() => {
+            fallbackCopy(text);
+        });
+    } else {
+        fallbackCopy(text);
+    }
+}
+
+function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand("copy");
+        showToast("Lyrics copied to clipboard!");
+    } catch (err) {
+        showToast("Failed to copy lyrics");
+    }
+    document.body.removeChild(textarea);
+}
+    
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.addEventListener("contextmenu", function(event) {
+        event.preventDefault();
+    }, true);
+
+    document.addEventListener("selectstart", function(event) {
+        event.preventDefault();
+    }, true);
+
+    document.addEventListener("dragstart", function(event) {
+        event.preventDefault();
+    }, true);
+
+    document.addEventListener("copy", function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }, true);
+
+    document.addEventListener("cut", function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }, true);
+
+});
+function toggleMenu() {
+
+    document.getElementById("popupMenu").classList.toggle("show");
+}
+function changeFontSize() {
+
+    let size = document.getElementById("fontSizeSelect").value;
+
+    let lyrics = document.getElementById("lyricsText");
+
+    if (size === "very-small") {
+        lyrics.style.fontSize = "14px";
+    }
+
+    if (size === "small") {
+        lyrics.style.fontSize = "16px";
+    }
+
+    if (size === "medium") {
+        lyrics.style.fontSize = "18px";
+    }
+
+    if (size === "large") {
+        lyrics.style.fontSize = "22px";
+    }
+
+    if (size === "extra-large") {
+        lyrics.style.fontSize = "26px";
+    }
+  localStorage.setItem("fontSize", size);
+}
+function getFontFamily(type) {
+    const fonts = {
+        "clash-display": '"Clash Display", system-ui, sans-serif',
+        "clash-grotesk": '"Clash Grotesk", system-ui, sans-serif',
+        "panchang": '"Panchang", system-ui, sans-serif',
+        "stardom": '"Stardom", system-ui, sans-serif',
+        "swaraga-demo": '"Swaraga Demo", system-ui, sans-serif',
+        "satoshi": '"Satoshi", system-ui, sans-serif',
+        "ranade": '"Ranade", system-ui, sans-serif',
+        "excon": '"Excon", system-ui, sans-serif',
+        "telma": '"Telma", system-ui, sans-serif',
+        "zodiak": '"Zodiak", Georgia, serif',
+        "boska": '"Boska", Georgia, serif',
+        "gambarino": '"Gambarino", Georgia, serif',
+        "noto-serif": '"Noto Serif", Georgia, serif',
+        "dancing-script": '"Dancing Script", cursive',
+        "cutive-mono": '"Cutive Mono", monospace',
+        "system": 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
+    };
+
+    return fonts[type] || fonts["system"];
+}
+
+function changeTopHeadingFont() {
+    const type = document.getElementById("topHeadingFontSelect").value;
+    document.documentElement.style.setProperty("--top-heading-font", getFontFamily(type));
+    localStorage.setItem("topHeadingFont", type);
+}
+
+function changeDisplayAccentFont() {
+    const type = document.getElementById("displayAccentFontSelect").value;
+    document.documentElement.style.setProperty("--display-accent-font", getFontFamily(type));
+    localStorage.setItem("displayAccentFont", type);
+}
+
+function changeSystemUiFont() {
+    const type = document.getElementById("systemUiFontSelect").value;
+    document.documentElement.style.setProperty("--system-ui-font", getFontFamily(type));
+    localStorage.setItem("systemUiFont", type);
+}
+
+function changeLyricsFont() {
+    const type = document.getElementById("lyricsFontSelect").value;
+    document.documentElement.style.setProperty("--lyrics-font", getFontFamily(type));
+    localStorage.setItem("lyricsFont", type);
+}
+
+/* Keep the old function name as a safe compatibility wrapper. */
+function changeFontType() {
+    changeLyricsFont();
+}
+
+      function changeTheme() {
+
+    let theme = document.getElementById("themeSelect").value;
+
+    localStorage.setItem("theme", theme);
+
+    document.body.classList.remove(
+        "dark-theme",
+        "theme-golden",
+        "theme-organic",
+        "theme-royal"
+    );
+
+    if (theme === "dark") {
+        document.body.classList.add("dark-theme");
+    }
+
+    if (theme === "golden") {
+        document.body.classList.add("theme-golden");
+    }
+
+    if (theme === "organic") {
+        document.body.classList.add("theme-organic");
+    }
+
+    if (theme === "royal") {
+        document.body.classList.add("theme-royal");
+    }
+
+    if (theme === "light" || theme === "system") {
+        document.body.classList.remove("dark-theme");
+    }
+      }
+
+document.getElementById("themeSelect").addEventListener("change", changeTheme);
+      let savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+    document.getElementById("themeSelect").value = savedTheme;
+    changeTheme();
+}
+      function changeAccentColor() {
+
+    let color = document.getElementById("accentColorSelect").value;
+
+    document.documentElement.style.setProperty("--accent-color", color);
+
+    if (
+        color === "yellow" ||
+        color === "aqua" ||
+        color === "pink" ||
+        color === "coral" ||
+        color === "white" ||
+        color === "gray"
+    ) {
+        document.documentElement.style.setProperty("--accent-text-color", "#17202a");
+    } else {
+        document.documentElement.style.setProperty("--accent-text-color", "white");
+    }
+
+    localStorage.setItem("accentColor", color);
+      }
+
+document.getElementById("accentColorSelect").addEventListener("change", changeAccentColor);
+
+let savedAccentColor = localStorage.getItem("accentColor");
+
+if (savedAccentColor) {
+    document.getElementById("accentColorSelect").value = savedAccentColor;
+    changeAccentColor();
+}
+      function previousSong() {
+
+    if (currentSong > 1) {
+        openSong(currentSong - 1);
+    } else {
+        showToast("This is the first song.");
+
+    }
+}
+
+function nextSong() {
+
+    if (currentSong < window.songLibrary.length) {
+
+        openSong(currentSong + 1);
+    } else {
+        showToast("This is the last song.");
+
+    }
+}
+function loadSettings() {
+    let savedFontSize = localStorage.getItem("fontSize");
+    let savedTopHeadingFont = localStorage.getItem("topHeadingFont");
+    let savedDisplayAccentFont = localStorage.getItem("displayAccentFont");
+    let savedSystemUiFont = localStorage.getItem("systemUiFont");
+    let savedLyricsFont = localStorage.getItem("lyricsFont");
+
+    if (savedFontSize) {
+        const fontSizeSelect = document.getElementById("fontSizeSelect");
+        if (fontSizeSelect) {
+            fontSizeSelect.value = savedFontSize;
+            changeFontSize();
+        }
+    }
+
+    if (savedTopHeadingFont) {
+        const select = document.getElementById("topHeadingFontSelect");
+        if (select) {
+            select.value = savedTopHeadingFont;
+            changeTopHeadingFont();
+        }
+    } else {
+        changeTopHeadingFont();
+    }
+
+    if (savedDisplayAccentFont) {
+        const select = document.getElementById("displayAccentFontSelect");
+        if (select) {
+            select.value = savedDisplayAccentFont;
+            changeDisplayAccentFont();
+        }
+    } else {
+        changeDisplayAccentFont();
+    }
+
+    if (savedSystemUiFont) {
+        const select = document.getElementById("systemUiFontSelect");
+        if (select) {
+            select.value = savedSystemUiFont;
+            changeSystemUiFont();
+        }
+    } else {
+        changeSystemUiFont();
+    }
+
+    if (savedLyricsFont) {
+        const select = document.getElementById("lyricsFontSelect");
+        if (select) {
+            select.value = savedLyricsFont;
+            changeLyricsFont();
+        }
+    } else {
+        changeLyricsFont();
+    }
+}
+
+loadSettings();
+
+function formatSongLyrics(text) {
+  return text
+    .replace(/\n(CHORUS)/g, '\n\n$1')
+    .replace(/([.;?!])\n([A-Z])/g, '$1\n\n$2');
+}
+</script>
+
+<div id="toast" class="toast"></div>
+<script>
+// APP NAVIGATION
+let handlingBack = false;
+
+// Make Home the starting point
+history.replaceState(
+    { screen: "home" },
+    "",
+    location.pathname + location.search
+);
+
+
+// Set Home as baseline
+if (!history.state) {
+    history.replaceState(
+        { screen: "home" },
+        "",
+        location.pathname + location.search
+    );
+}
+
+// Handle Android gesture / back button
+window.addEventListener("popstate", function () {
+    appBack();
+});
+
+// Register Service Worker
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker.register("./service-worker.js?v=0.56.7");
+    });
+}
+</script>
+  <script src="./songs_977_cleaned.js"></script>
+</body>
+</html>
+
