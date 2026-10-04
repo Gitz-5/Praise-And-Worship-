@@ -1,4 +1,4 @@
-const CACHE_NAME = "songs-of-worship-praise-v6"; // Bumped from v5 to v6 to flush old cache
+const CACHE_NAME = "songs-of-worship-praise-v7"; // Bumped from v5 to v6 to flush old cache
 
 const FILES_TO_CACHE = [
     "./",
@@ -10,7 +10,18 @@ const FILES_TO_CACHE = [
     './eagle.png',
     "./Bald-eagle.jpg"
 ];
-
+"./fonts/Aktura-Regular.woff2",
+"./fonts/Bevellier-Regular.woff2",
+"./fonts/ClashDisplay-Variable.woff2",
+"./fonts/ClashGrotesk-Variable.woff2",
+"./fonts/Gambarino-Regular.woff2",
+"./fonts/Nippo-Extralight.woff2",
+"./fonts/Panchang-Bold.woff2",
+"./fonts/Satoshi-Variable.woff2",
+"./fonts/Stardom-Regular.woff2",
+"./fonts/SwaragaDemo-Regular.ttf",
+"./fonts/Telma-Regular.woff2",
+"./fonts/Zodiak-Regular.woff2"
 
 // ================================
 // INSTALL
