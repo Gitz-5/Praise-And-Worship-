@@ -113,6 +113,7 @@ footer, .version-text {
         .screen {
             padding: 35px 20px;
             text-align: center;
+          min-height: calc(100vh - 64px);
         }
 
         .screen h1 {
@@ -333,6 +334,27 @@ footer, .version-text {
     font-weight: bold;
 
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.clear-favorites-button {
+    display: block;
+
+    margin: 5px 0 20px 0;
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #b71c1c;
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.clear-favorites-button:active {
+    transform: scale(0.97);
 }
 
 .favorite-button:active {
@@ -741,7 +763,19 @@ body * {
 .song-navigation {
     flex-shrink: 0;
 }
+/* FAVORITES PAGE */
+#favoritesScreen {
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
 
+#favoriteList {
+    padding-bottom: 40px;
+}
+      
     </style>
 
 <body>
@@ -1027,12 +1061,17 @@ body * {
         <h1>Favorites</h1>
 
         <p class="subtitle">
-            Your favorite songs
-        </p>
+    Your favorite songs
+</p>
 
-        <div id="favoriteList">
+<button class="clear-favorites-button" onclick="clearAllFavorites()">
+    🗑 Clear All Favorites
+</button>
+
+<div id="favoriteList">
     No favorite songs yet.
         </div>
+      <div class="favorites-scroll-end"></div>
 
     </main>
 <!-- SONG LYRICS SCREEN -->
@@ -1311,7 +1350,21 @@ function showFavorites() {
     document.getElementById("favoritesScreen").classList.remove("hidden");
     history.pushState({ locked: true, screen: "favorites" }, "", "#favorites");
 }
+   function clearAllFavorites() {
+    if (favoriteSongs.length === 0) {
+        showToast("There are no favorite songs to clear");
+        return;
+    }
 
+    favoriteSongs = [];
+
+    localStorage.removeItem("favoriteSongs");
+
+    document.getElementById("favoriteList").innerHTML =
+        "No favorite songs yet.";
+
+    showToast("All favorite songs cleared");
+   }
 function showAbout() {
     hideAllScreens();
     document.getElementById("aboutScreen").classList.remove("hidden");
