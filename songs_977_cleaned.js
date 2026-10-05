@@ -41,7 +41,7 @@ window.songLibrary = [
   },
   {
     "number": 9,
-    "title": "9,9,FEELING SO MUCH BETTER,F",
+    "title": "FEELING SO MUCH BETTER",
     "lyrics": "Feeling so much better\n talking about this good old Way,\n Feeling so much better\n talking about the Lord;\n Let’s go on, let’s go on\n talking about this good old Way\n Let’s go on, let’s go on\n talking about the Lord.\n \n The devil he don’t like it,\n talking about this good old Way,\n The devil he don’t like it,\n talking about the Lord.\n Let’s go on, let’s go on\n talking about this good old\n Way\n Let’s go on, let’s go on talking\n about the Lord.\n"
   },
   {
@@ -61,7 +61,7 @@ window.songLibrary = [
   },
   {
     "number": 13,
-    "title": "13,13,MARVELOUS GRACE,F",
+    "title": "MARVELOUS GRACE",
     "lyrics": "Marvelous grace \n Of our loving Lord,\n Grace that exceeds\n Our sin and our guilt.\n Yonder on Calvary's\n Mount outpoured,\n There where the Blood\n Of the Lamb was spilt.\n \n CHORUS\n Grace, grace, God's grace,\n Grace that will pardon\n And cleanse within;\n Grace, grace, God's grace,\n Grace that is greater\n Than all our sin.\n \n Sin and despair\n Like the sea waves cold,\n Threaten the soul\n With infinite loss;\n Grace that is greater,\n Yes, grace untold,\n Points to the refuge,\n The Mighty Cross.\n \n Dark is the stain\n That we cannot hide,\n What can avail\n To wash it away?\n Look! there is flowing\n A crimson tide;\n Whiter than snow\n You may be today.\n \n Marvelous, infinite,\n Matchless grace,\n Freely bestowed\n On all who believe!\n You that are longing\n To see His face,\n Will you this moment\n His grace receive?\n MARVELOUS, INFINITE,,,,0\n"
   },
   {

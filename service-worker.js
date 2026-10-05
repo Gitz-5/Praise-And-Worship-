@@ -1,5 +1,4 @@
-const CACHE_NAME = "songs-of-worship-praise-v7"; // Bumped from v5 to v6 to flush old cache
-
+const CACHE_NAME = "songs-of-worship-praise-v7"; // Bumped from v6 to v7 to cache local fonts
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
