@@ -1,4 +1,4 @@
-const CACHE_NAME = "songs-of-worship-praise-v7"; // Bumped from v6 to v7 to cache local fonts
+const CACHE_NAME = "songs-of-worship-praise-v8"; // Bumped from v6 to v7 to cache local fonts
 const FILES_TO_CACHE = [
     "./",
     "./index.html",
@@ -6,21 +6,22 @@ const FILES_TO_CACHE = [
     "./songs_977.js",
     "./icon-192.png",
     "./icon-512.png",
-    './eagle.png',
-    "./Bald-eagle.jpg"
+    "./eagle.png",
+    "./Bald-eagle.jpg",
+
+    "./Aktura-Regular.woff2",
+    "./Bevellier-Regular.woff2",
+    "./ClashDisplay-Variable.woff2",
+    "./ClashGrotesk-Variable.woff2",
+    "./Gambarino-Regular.woff2",
+    "./Nippo-Extralight.woff2",
+    "./Panchang-Bold.woff2",
+    "./Satoshi-Variable.woff2",
+    "./Stardom-Regular.woff2",
+    "./SwaragaDemo-Regular.ttf",
+    "./Telma-Regular.woff2",
+    "./Zodiak-Regular.woff2"
 ];
-"./fonts/Aktura-Regular.woff2",
-"./fonts/Bevellier-Regular.woff2",
-"./fonts/ClashDisplay-Variable.woff2",
-"./fonts/ClashGrotesk-Variable.woff2",
-"./fonts/Gambarino-Regular.woff2",
-"./fonts/Nippo-Extralight.woff2",
-"./fonts/Panchang-Bold.woff2",
-"./fonts/Satoshi-Variable.woff2",
-"./fonts/Stardom-Regular.woff2",
-"./fonts/SwaragaDemo-Regular.ttf",
-"./fonts/Telma-Regular.woff2",
-"./fonts/Zodiak-Regular.woff2"
 
 // ================================
 // INSTALL
